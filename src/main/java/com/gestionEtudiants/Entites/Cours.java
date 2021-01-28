@@ -7,13 +7,12 @@ import java.util.List;
 @Entity
 public class Cours implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String motCle;
     private String nom;
     private  String description;
     private String pdfLink;
     @ManyToOne
-    @JoinColumn(name = "gerer")
+    @JoinColumn(name = "matricule")
     private Admin admin;
     @ManyToMany
     @JoinTable(name ="ETUD_CRS")

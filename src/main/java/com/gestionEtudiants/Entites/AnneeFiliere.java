@@ -10,7 +10,7 @@ public class AnneeFiliere implements Serializable {
     private Long id;
     private String annee;
     @ManyToOne
-    @JoinColumn(name = "rassemble")
+    @JoinColumn(name = "filiere_ID")
     private Filiere filiere;
 
     public AnneeFiliere() {

@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 public class Etudiant extends Personne implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String CNE;
     @ManyToMany
     @JoinTable(name = "ETUD_SERV")

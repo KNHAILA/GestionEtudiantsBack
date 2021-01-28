@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 public class Admin extends Personne implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String matricule;
     @OneToMany(mappedBy="admin",fetch =FetchType.LAZY)
     private List<Cours> coursList;

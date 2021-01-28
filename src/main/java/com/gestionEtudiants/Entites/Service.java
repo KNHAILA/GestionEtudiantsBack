@@ -10,7 +10,7 @@ public class Service implements Serializable {
     private Long id;
     private  String nom;
     @ManyToOne
-    @JoinColumn(name = "traiter")
+    @JoinColumn(name ="matricule")
     private Admin admin;
     @ManyToMany(mappedBy = "services")
     private List<Etudiant> etudiants;
