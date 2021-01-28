@@ -1,10 +1,9 @@
 package com.gestionEtudiants.Entites;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 public class Matiere implements Serializable {
     @Id
@@ -15,6 +14,11 @@ public class Matiere implements Serializable {
     private int nbrHeuresCours;
     private int nbrHeuresTDs;
     private int nbrHeuresTPs;
+    @ManyToOne
+    @JoinColumn(name = "semestre_ID")
+    private Semestre semestre;
+    @ManyToMany(mappedBy = "matieres")
+    private List<Etudiant> etudiants;
 
     public Matiere() {
         super();

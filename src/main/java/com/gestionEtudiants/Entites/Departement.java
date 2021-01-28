@@ -12,6 +12,8 @@ public class Departement implements Serializable {
     private String nom;
     @OneToMany(mappedBy="departement",fetch =FetchType.LAZY)
     private List<Admin> adminList;
+    @OneToMany(mappedBy="departement",fetch =FetchType.LAZY)
+    private List<Filiere> FiliereList;
 
     public Departement() {
         super();

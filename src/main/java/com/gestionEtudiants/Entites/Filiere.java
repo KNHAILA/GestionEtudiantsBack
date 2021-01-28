@@ -12,6 +12,11 @@ public class Filiere implements Serializable {
     private String nom;
     @OneToMany(mappedBy="filiere",fetch =FetchType.LAZY)
     private List<AnneeFiliere> anneeFiliereList;
+    @ManyToOne
+    @JoinColumn(name = "departement_ID")
+    private Departement departement;
+    @OneToMany(mappedBy="filiere",fetch =FetchType.LAZY)
+    private List<Etudiant> etudiantsList;
 
     public Filiere() {
     }
