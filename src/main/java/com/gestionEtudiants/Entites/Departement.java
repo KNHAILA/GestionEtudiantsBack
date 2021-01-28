@@ -1,16 +1,17 @@
 package com.gestionEtudiants.Entites;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 public class Departement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nom;
+    @OneToMany(mappedBy="departement",fetch =FetchType.LAZY)
+    private List<Admin> adminList;
 
     public Departement() {
         super();

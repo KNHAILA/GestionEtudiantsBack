@@ -1,10 +1,8 @@
 package com.gestionEtudiants.Entites;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Cours implements Serializable {
@@ -14,7 +12,12 @@ public class Cours implements Serializable {
     private String nom;
     private  String description;
     private String pdfLink;
-
+    @ManyToOne
+    @JoinColumn(name = "gerer")
+    private Admin admin;
+    @ManyToMany
+    @JoinTable(name ="ETUD_CRS")
+    private List<Etudiant> etudiants;
     public Cours() {
     }
 
