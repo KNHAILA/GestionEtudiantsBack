@@ -1,10 +1,8 @@
 package com.gestionEtudiants.Entites;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Filiere implements Serializable {
@@ -12,6 +10,8 @@ public class Filiere implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
+    @OneToMany(mappedBy="filiere",fetch =FetchType.LAZY)
+    private List<AnneeFiliere> anneeFiliereList;
 
     public Filiere() {
     }

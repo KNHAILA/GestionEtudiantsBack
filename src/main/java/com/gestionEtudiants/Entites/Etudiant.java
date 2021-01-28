@@ -1,17 +1,21 @@
 package com.gestionEtudiants.Entites;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Etudiant extends Personne  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String CNE;
+    @ManyToMany
+    @JoinTable(name = "ETUD_SERV")
+    private List<Service> services;
+    @ManyToMany(mappedBy = "etudiants")
+    private List<Cours> coursList;
 
     public Etudiant() {
         super();
