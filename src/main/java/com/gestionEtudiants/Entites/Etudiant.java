@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Etudiant extends Personne  {
+public class Etudiant extends Personne implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String CNE;
@@ -16,6 +16,12 @@ public class Etudiant extends Personne  {
     private List<Service> services;
     @ManyToMany(mappedBy = "etudiants")
     private List<Cours> coursList;
+    @ManyToOne
+    @JoinColumn(name = "filiere_ID")
+    private Filiere filiere;
+    @ManyToMany
+    @JoinTable(name="Etude")
+    private List<Matiere> matieres;
 
     public Etudiant() {
         super();
