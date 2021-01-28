@@ -12,7 +12,10 @@ public class AnneeFiliere implements Serializable {
     @ManyToOne
     @JoinColumn(name = "filiere_ID")
     private Filiere filiere;
-
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "anneeFiliere")
+    private EmploiTemps emploiTemps;
     public AnneeFiliere() {
     }
 

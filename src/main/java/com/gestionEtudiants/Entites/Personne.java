@@ -1,10 +1,12 @@
 package com.gestionEtudiants.Entites;
 
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Date;
-
-
-public class Personne implements Serializable {
+@MappedSuperclass
+public class Personne {
     private String nom;
     private String prenom;
     private String email;
