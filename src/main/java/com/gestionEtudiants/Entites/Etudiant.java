@@ -11,10 +11,8 @@ public class Etudiant extends Personne implements Serializable {
     @Id
     private String CNE;
     @ManyToMany
-    @JoinTable(name = "ETUD_SERV")
+    @JoinTable(name = "DemandeService")
     private List<Service> services;
-    @ManyToMany(mappedBy = "etudiants")
-    private List<Cours> coursList;
     @ManyToOne
     @JoinColumn(name = "filiere_ID")
     private Filiere filiere;
