@@ -16,6 +16,8 @@ public class Service implements Serializable {
     private List<Etudiant> etudiants;
     @OneToMany(mappedBy="semestre",fetch =FetchType.LAZY)
     private List<Matiere> matieresList;
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
+    private List<DemandeService> demandeServices;
 
     public Service() {
     }
