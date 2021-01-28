@@ -19,9 +19,8 @@ public class Etudiant extends Personne implements Serializable {
     @ManyToOne
     @JoinColumn(name = "filiere_ID")
     private Filiere filiere;
-    @ManyToMany
-    @JoinTable(name="Etude")
-    private List<Matiere> matieres;
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
+    private List<Etude> etudes;
 
     public Etudiant() {
         super();
