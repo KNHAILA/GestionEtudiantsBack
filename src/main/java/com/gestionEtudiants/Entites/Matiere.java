@@ -17,8 +17,8 @@ public class Matiere implements Serializable {
     @ManyToOne
     @JoinColumn(name = "semestre_ID")
     private Semestre semestre;
-    @ManyToMany(mappedBy = "matieres")
-    private List<Etudiant> etudiants;
+    @OneToMany(mappedBy = "matiere", cascade = CascadeType.ALL)
+    private List<Etude> etudes;
 
     public Matiere() {
         super();
