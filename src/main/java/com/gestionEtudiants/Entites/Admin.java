@@ -15,7 +15,7 @@ public class Admin extends Personne implements Serializable {
     @OneToMany(mappedBy="admin",fetch =FetchType.LAZY)
     private List<Service> serviceList;
     @ManyToOne
-    @JoinColumn(name = "appartient")
+    @JoinColumn(name = "departement_ID")
     private Departement departement;
 
     public Admin() {

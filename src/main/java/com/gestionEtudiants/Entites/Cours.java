@@ -14,9 +14,6 @@ public class Cours implements Serializable {
     @ManyToOne
     @JoinColumn(name = "matricule")
     private Admin admin;
-    @ManyToMany
-    @JoinTable(name ="ETUD_CRS")
-    private List<Etudiant> etudiants;
     public Cours() {
     }
 
