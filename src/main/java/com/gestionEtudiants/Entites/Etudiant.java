@@ -18,6 +18,8 @@ public class Etudiant extends Personne implements Serializable {
     private Filiere filiere;
     @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
     private List<Etude> etudes;
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
+    private List<DemandeService> demandeServices;
 
     public Etudiant() {
         super();
