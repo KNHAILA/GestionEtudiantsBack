@@ -1,9 +1,10 @@
 package com.gestionEtudiants.Entites;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Etude {
+public class Etude implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
