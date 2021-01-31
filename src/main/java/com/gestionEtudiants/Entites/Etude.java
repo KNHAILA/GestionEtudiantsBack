@@ -19,4 +19,43 @@ public class Etude implements Serializable {
     private float note;
     private int nbrAbsences;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Matiere getMatiere() {
+        return matiere;
+    }
+
+    public void setMatiere(Matiere matiere) {
+        this.matiere = matiere;
+    }
+
+    public Etudiant getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(Etudiant etudiant) {
+        this.etudiant = etudiant;
+    }
+
+    public float getNote() {
+        return note;
+    }
+
+    public void setNote(float note) {
+        this.note = note;
+    }
+
+    public int getNbrAbsences() {
+        return nbrAbsences;
+    }
+
+    public void setNbrAbsences(int nbrAbsences) {
+        this.nbrAbsences = nbrAbsences;
+    }
 }
