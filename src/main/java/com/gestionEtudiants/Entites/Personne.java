@@ -10,16 +10,18 @@ public class Personne {
     private String nom;
     private String prenom;
     private String email;
+    private String password;
     private Date dateNaissance;
 
     public Personne() {
         super();
     }
 
-    public Personne(String nom, String prenom, String email, Date dateNaissance){
+    public Personne(String nom, String prenom, String email,String password, Date dateNaissance){
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
+        this.password = password;
         this.dateNaissance = dateNaissance;
     }
 
@@ -45,6 +47,14 @@ public class Personne {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getDateNaissance() {
