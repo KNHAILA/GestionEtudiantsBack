@@ -10,9 +10,6 @@ import java.util.List;
 public class Etudiant extends Personne implements Serializable {
     @Id
     private String CNE;
-    @ManyToMany
-    @JoinTable(name = "DemandeService")
-    private List<Service> services;
     @ManyToOne
     @JoinColumn(name = "filiere_ID")
     private Filiere filiere;
@@ -25,8 +22,8 @@ public class Etudiant extends Personne implements Serializable {
         super();
     }
 
-    public Etudiant(String nom, String prenom, String email, Date dateNaissance, String CNE) {
-        super(nom, prenom, email, dateNaissance);
+    public Etudiant(String nom, String prenom, String email, String password, Date dateNaissance, String CNE) {
+        super(nom, prenom, email, password, dateNaissance);
         this.CNE = CNE;
     }
 
@@ -36,5 +33,29 @@ public class Etudiant extends Personne implements Serializable {
 
     public void setCNE(String CNE) {
         this.CNE = CNE;
+    }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
+    }
+
+    public List<Etude> getEtudes() {
+        return etudes;
+    }
+
+    public void setEtudes(List<Etude> etudes) {
+        this.etudes = etudes;
+    }
+
+    public List<DemandeService> getDemandeServices() {
+        return demandeServices;
+    }
+
+    public void setDemandeServices(List<DemandeService> demandeServices) {
+        this.demandeServices = demandeServices;
     }
 }

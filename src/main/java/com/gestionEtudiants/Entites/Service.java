@@ -7,31 +7,27 @@ import java.util.List;
 @Entity
 public class Service implements Serializable {
     @Id
-    private Long id;
+    private Integer id;
     private  String nom;
     @ManyToOne
     @JoinColumn(name ="matricule")
     private Admin admin;
-    @ManyToMany(mappedBy = "services")
-    private List<Etudiant> etudiants;
-    @OneToMany(mappedBy="semestre",fetch =FetchType.LAZY)
-    private List<Matiere> matieresList;
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     private List<DemandeService> demandeServices;
 
     public Service() {
     }
 
-    public Service(Long id, String nom) {
+    public Service(Integer id, String nom) {
         this.id = id;
         this.nom = nom;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

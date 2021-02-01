@@ -17,10 +17,15 @@ public class EtudiantMetierImpl implements EtudiantMetier{
 
     @Override
     public boolean getAminByCneAndPassword(String cne, String password) {
-        Etudiant etud=etudiantRepository.getOne(cne);
-        if(etud!=null && etud.getPassword()==password)
+        Etudiant etud=etudiantRepository.findById(cne).orElse(null);
+        if(etud!=null && etud.getPassword().equals(password))
             return true;
         return false;
+    }
+
+    @Override
+    public Etudiant addEtudiant(Etudiant etudiant) {
+        return etudiantRepository.save(etudiant);
     }
 
 

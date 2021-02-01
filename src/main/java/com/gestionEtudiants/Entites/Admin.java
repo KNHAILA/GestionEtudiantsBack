@@ -21,8 +21,8 @@ public class Admin extends Personne implements Serializable {
     public Admin() {
     }
 
-    public Admin(String nom, String prenom, String email, Date dateNaissance, String matricule) {
-        super(nom, prenom, email, dateNaissance);
+    public Admin(String nom, String prenom, String email, String password, Date dateNaissance, String matricule) {
+        super(nom, prenom, email,password, dateNaissance);
         this.matricule = matricule;
     }
 
