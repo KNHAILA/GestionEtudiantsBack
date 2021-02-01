@@ -34,6 +34,7 @@ public class DemandeServiceMetierImpl implements DemandeServiceMetier {
         return demandeServiceRepository.findAll();
     }
 
+    @Override
     public List<DemandeDTO> getAllDemandes()
     {
         List<DemandeDTO> demandes=new ArrayList<DemandeDTO>();
@@ -53,11 +54,13 @@ public class DemandeServiceMetierImpl implements DemandeServiceMetier {
                 {
                     Etudiant etudiant=etudiantRepository.getOne(demandeService.getEtudiant().getCNE());
                     EtudiantDTO etudiantDTO=new EtudiantDTO();
+                    etudiantDTO.setCne(etudiant.getCNE());
                     etudiantDTO.setNom(etudiant.getNom());
                     etudiantDTO.setPrenom(etudiant.getPrenom());
                     etudiantDTO.setDateNaissance(etudiant.getDateNaissance());
                     etudiantDTO.setEmail(etudiant.getEmail());
                     etudiantDTO.setClasse(demandeService.getAnnee());
+                    etudiantDTO.setPlusInfo(demandeService.getDescription());
                     etudiantsDTO.add(etudiantDTO);
                 }
                 demandeDTO.setEtudiants(etudiantsDTO);

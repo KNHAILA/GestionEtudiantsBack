@@ -9,10 +9,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DemandeDTO {
+public class EtudeNotesDTO {
     private Integer id;
-    private String nom;
-    private Integer nombre;
-    private List<EtudiantDTO> etudiants;
+    private String code;
     private boolean open=false;
+    private List<MatiereDTO> matieres;
 }

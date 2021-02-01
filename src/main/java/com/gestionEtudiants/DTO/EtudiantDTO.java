@@ -16,4 +16,5 @@ public class EtudiantDTO {
     private String email;
     private String plusInfo;
     private String classe;
+    private boolean open=false;
 }

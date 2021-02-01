@@ -2,6 +2,7 @@ package com.gestionEtudiants.Services;
 
 
 import com.gestionEtudiants.Entites.Cours;
+import com.gestionEtudiants.Entites.DemandeService;
 import com.gestionEtudiants.Metier.CoursMetier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +23,9 @@ public class CoursRestService {
     public List<Cours> getAllCours()
     {
         return coursMetier.listCours();
+    }
+    @PostMapping("add")
+    public Cours addCours(@RequestBody Cours cours){
+        return coursMetier.saveCours(cours);
     }
 }

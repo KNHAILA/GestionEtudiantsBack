@@ -1,5 +1,6 @@
 package com.gestionEtudiants.Services;
 
+import com.gestionEtudiants.DTO.EtudeNotesDTO;
 import com.gestionEtudiants.Entites.Cours;
 import com.gestionEtudiants.Metier.EtudeMatier;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,10 @@ public class EtudeRestService {
     public List<Float> getPourcentages(@PathVariable String cne)
     {
         return etudeMatier.pourcentageMatieres(cne);
+    }
+    @GetMapping("listNotes/{cne}")
+    public List<EtudeNotesDTO> getNotes(@PathVariable String cne)
+    {
+        return etudeMatier.getNotes(cne);
     }
 }
