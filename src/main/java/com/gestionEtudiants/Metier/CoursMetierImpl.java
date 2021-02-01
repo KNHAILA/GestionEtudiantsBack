@@ -2,7 +2,6 @@ package com.gestionEtudiants.Metier;
 
 import com.gestionEtudiants.Dao.CoursRepository;
 import com.gestionEtudiants.Entites.Cours;
-import com.sun.org.apache.bcel.internal.generic.ARETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +23,6 @@ public class CoursMetierImpl implements CoursMetier{
 
     @Override
     public Cours getCours(String motCle) {
-        return coursRepository.getOne(motCle);
+        return coursRepository.findById(motCle).orElse(null);
     }
 }

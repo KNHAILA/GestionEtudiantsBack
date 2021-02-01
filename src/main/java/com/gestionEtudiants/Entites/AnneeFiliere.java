@@ -39,4 +39,20 @@ public class AnneeFiliere implements Serializable {
     public void setAnnee(String annee) {
         this.annee = annee;
     }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
+    }
+
+    public EmploiTemps getEmploiTemps() {
+        return emploiTemps;
+    }
+
+    public void setEmploiTemps(EmploiTemps emploiTemps) {
+        this.emploiTemps = emploiTemps;
+    }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class Service implements Serializable {
     @Id
-    private Long id;
+    private Integer id;
     private  String nom;
     @ManyToOne
     @JoinColumn(name ="matricule")
@@ -22,16 +22,16 @@ public class Service implements Serializable {
     public Service() {
     }
 
-    public Service(Long id, String nom) {
+    public Service(Integer id, String nom) {
         this.id = id;
         this.nom = nom;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
