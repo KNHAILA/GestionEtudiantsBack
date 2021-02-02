@@ -49,27 +49,29 @@ public class EtudeMatierImpl implements EtudeMatier{
         List<Semestre> listSemestres=semestreRepository.findAll();
         for(Semestre semestre: listSemestres)
         {
+            boolean exist=false;
+            EtudeNotesDTO etudeNotesDTO = new EtudeNotesDTO();
+            List<MatiereDTO> matieresDTO = new ArrayList<MatiereDTO>();
             List<Matiere> matieres=matiereRepository.findByIdSemestre(semestre.getId());
             for(Matiere matiere: matieres)
             {
                 List<Etude> listEtude=etudeRepository.findByCneAndIdMatiere(cne,matiere.getId());
-                if(listEtude.size()>0)
-                {
-                    EtudeNotesDTO etudeNotesDTO=new EtudeNotesDTO();
+                if(listEtude.size()>0) {
                     etudeNotesDTO.setId(semestre.getId());
                     etudeNotesDTO.setCode(semestre.getNom());
-                    List<MatiereDTO> matieresDTO=new ArrayList<MatiereDTO>();
-                    for(Etude etude: listEtude)
-                    {
-                        MatiereDTO matiereDTO=new MatiereDTO();
+                    for (Etude etude : listEtude) {
+                        MatiereDTO matiereDTO = new MatiereDTO();
                         matiereDTO.setId(matiere.getId());
                         matiereDTO.setNom(matiere.getNom());
                         matiereDTO.setNote(etude.getNote());
                         matieresDTO.add(matiereDTO);
                     }
-                    etudeNotesDTO.setMatieres(matieresDTO);
-                    etudeNotesDTOList.add(etudeNotesDTO);
+                    exist=true;
                 }
+            }
+            if(exist) {
+                etudeNotesDTO.setMatieres(matieresDTO);
+                etudeNotesDTOList.add(etudeNotesDTO);
             }
         }
         return etudeNotesDTOList;
