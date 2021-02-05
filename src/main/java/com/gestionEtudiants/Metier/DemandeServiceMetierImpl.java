@@ -2,6 +2,7 @@ package com.gestionEtudiants.Metier;
 
 import com.gestionEtudiants.DTO.DemandeDTO;
 import com.gestionEtudiants.DTO.EtudiantDTO;
+import com.gestionEtudiants.DTO.PostDemandeDTO;
 import com.gestionEtudiants.Dao.AnneeFiliereRepository;
 import com.gestionEtudiants.Dao.DemandeServiceRepository;
 import com.gestionEtudiants.Dao.EtudiantRepository;
@@ -24,9 +25,15 @@ public class DemandeServiceMetierImpl implements DemandeServiceMetier {
     private EtudiantRepository etudiantRepository;
     @Autowired
     private AnneeFiliereRepository anneeFiliereRepository;
+
     @Override
-    public DemandeService saveDemandeService(DemandeService c) {
-        return demandeServiceRepository.save(c);
+    public DemandeService saveDemandeService(PostDemandeDTO c) {
+          DemandeService d=new DemandeService();
+          d.setService(serviceRepository.findById(c.getService()).get());
+          d.setAnnee(c.getAnnee());
+          d.setDescription(c.getDescription());
+          d.setEtudiant(etudiantRepository.findById(c.getCne()).get());
+          return demandeServiceRepository.save(d);
     }
 
     @Override

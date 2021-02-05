@@ -1,6 +1,7 @@
 package com.gestionEtudiants.Services;
 
 
+import com.gestionEtudiants.DTO.PostCoursDTO;
 import com.gestionEtudiants.Entites.Cours;
 import com.gestionEtudiants.Entites.DemandeService;
 import com.gestionEtudiants.Metier.CoursMetier;
@@ -25,7 +26,7 @@ public class CoursRestService {
         return coursMetier.listCours();
     }
     @PostMapping("add")
-    public Cours addCours(@RequestBody Cours cours){
-        return coursMetier.saveCours(cours);
+    public Cours addCours(@RequestBody PostCoursDTO c){
+        return coursMetier.saveCours(c);
     }
 }

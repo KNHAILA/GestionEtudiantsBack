@@ -55,4 +55,12 @@ public class Cours implements Serializable {
     public void setPdfLink(String pdfLink) {
         this.pdfLink = pdfLink;
     }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 }

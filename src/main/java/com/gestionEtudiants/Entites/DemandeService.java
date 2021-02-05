@@ -1,18 +1,23 @@
 package com.gestionEtudiants.Entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 public class DemandeService {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Integer id;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name="service_ID")
     private Service service;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name="etudiant_ID")
+    @JsonIgnore
     private Etudiant etudiant;
 
     private String annee;
@@ -33,7 +38,7 @@ public class DemandeService {
     public void setService(Service service) {
         this.service = service;
     }
-
+@JoinTable
     public Etudiant getEtudiant() {
         return etudiant;
     }
