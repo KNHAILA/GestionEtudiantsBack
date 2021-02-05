@@ -1,5 +1,7 @@
 package com.gestionEtudiants.Entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -39,7 +41,7 @@ public class AnneeFiliere implements Serializable {
     public void setAnnee(String annee) {
         this.annee = annee;
     }
-
+    @JsonIgnore
     public Filiere getFiliere() {
         return filiere;
     }
@@ -47,7 +49,7 @@ public class AnneeFiliere implements Serializable {
     public void setFiliere(Filiere filiere) {
         this.filiere = filiere;
     }
-
+    @JsonIgnore
     public EmploiTemps getEmploiTemps() {
         return emploiTemps;
     }
